@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+.main {
+    min-height: 72dvh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.admin-form {
+    width: 40%;
+    margin: 3rem auto;
+    border-radius: 20px;
+    box-shadow: rgba(91, 88, 88, 0.755) .2rem .2rem .9rem .2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login_layout {
+    /* width: 40rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 2rem; */
+    /* margin: 5rem; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.login {
+    /* min-height: 72dvh; */
+    /* width: 40rem;
+    height: 30rem; */
+    /*height: 24rem; */
+    /* margin: 5rem auto; */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    margin-top: 4rem;
+    width: 30em;
+    border-radius: 20px;
+    box-shadow: rgba(91, 88, 88, 0.755) .2rem .2rem .9rem .2rem;
+    /* padding: 30px 10px 30px 10px; */
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

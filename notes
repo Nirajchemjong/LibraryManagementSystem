@@ -1,0 +1,31 @@
+react bootstrap
+redux toolkit react redux
+react-toastify
+font awesome
+firebase
+react-router DOM
+
+npm i firebase @reduxjs/toolkit react-redux
+
+npm i react-toastify react-router-dom
+
+features
+
+1.  admin
+
+- register
+- Login
+- reset password
+- Dashboard page
+- CRUD books
+- view Students
+
+2. Students :
+
+- Home page, surf books,
+  -book landing page
+- register
+  -login
+- dashboard
+- borrow books
+- return books

@@ -11,7 +11,12 @@ export const Header = () => {
       expand='lg'
     >
       <Container>
-        <Navbar.Brand href='#home'>Library Management Systems</Navbar.Brand>
+        <Link
+          to='/'
+          className='navbar-brand'
+        >
+          Library Management Systems
+        </Link>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='me-auto'>

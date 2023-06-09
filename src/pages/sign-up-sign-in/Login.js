@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DefaultLayout } from "../../components/layout/DefaultLayout";
 import { CustomInput } from "../../components/custom-input/CustomInput";
 import { Button } from "react-bootstrap";
@@ -8,10 +8,17 @@ import { auth } from "../../config/firebase-config";
 import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAction } from "../user/userAction";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [form, setForm] = useState({});
   const navigate = useNavigate();
+  const { admin } = useSelector((state) => state.adminInfo);
+  useEffect(() => {
+    admin?.uid && navigate("/dashboard");
+  }, [admin, navigate]);
   const loginData = [
     {
       lable: "Email",
@@ -44,14 +51,15 @@ const Login = () => {
       toast.promise(signinPromise, {
         pending: "please wait...",
       });
-      const signIn = await signinPromise.then((userCredential) => {
+      await signinPromise.then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         if (user.uid) {
           toast.success(`congrats! You're logged in Succesfully`);
-          navigate("/");
+          navigate("/dashboard");
+          dispatch(getUserAction(user?.uid));
         }
-        console.log(signIn);
+        // console.log(signIn);
         // if (signIn?.user.uid === user?.uid) {
         //
         // }

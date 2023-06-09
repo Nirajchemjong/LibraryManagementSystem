@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DefaultLayout } from "../../components/layout/DefaultLayout";
 // import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { CustomInput } from "../../components/custom-input/CustomInput";
 import { Button } from "react-bootstrap";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebase-config";
+import { auth, db } from "../../config/firebase-config";
 import { toast } from "react-toastify";
+import { setDoc, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { getUserAction } from "../user/userAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const [form, setForm] = useState({});
+  const navigate = useNavigate();
+
+  const { admin } = useSelector((state) => state.adminInfo);
+
+  useEffect(() => {
+    admin?.uid && navigate("/dashboard");
+  }, [admin, navigate]);
 
   const handleOnChanged = (e) => {
     const { name, value } = e.target;
@@ -22,7 +34,7 @@ const Signup = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const { password, confirmPassword } = form;
+    const { confirmPassword, password, ...rest } = form;
     if (password !== confirmPassword) {
       return toast.error("password do not match");
     }
@@ -42,7 +54,12 @@ const Signup = () => {
       const authSnap = await authSnapPromise;
       console.log(authSnap);
       if (authSnap?.user.uid) {
+        //add user in the user table
+        await setDoc(doc(db, "users", authSnap?.user.uid), rest);
         toast.success("New user has been created");
+
+        dispatch(getUserAction(authSnap?.user.uid));
+        navigate("/dashboard");
       }
     } catch (error) {
       console.log(error);

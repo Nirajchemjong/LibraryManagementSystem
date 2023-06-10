@@ -6,13 +6,11 @@ import { SideBar } from "../sideBar/SideBar";
 export const UserLayout = ({ children }) => {
   return (
     <>
-      <>
-        <Header />
-        <div className='d-flex'>
-          <SideBar /> <div className='main'>{children}</div>
-        </div>
-        <Footer />
-      </>
+      <Header />
+      <div className='d-flex'>
+        <SideBar /> <div className='main w-100 '>{children}</div>
+      </div>
+      <Footer />
     </>
   );
 };

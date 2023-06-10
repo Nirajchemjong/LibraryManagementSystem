@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 export const SideBar = () => {
   return (
     <div
-      className=' bg-dark text-light'
+      className=' bg-dark text-light '
       style={{ width: "150px" }}
     >
       <div className='top text-center mt-5'>Admin</div>
       <div>
-        <ul className='list-unstyled mx-4'>
+        <ul
+          className='list-unstyled mx-4 mt-3 d-grid text-center'
+          style={{ height: "17rem" }}
+        >
           <li>
             <Link
               to='/dashboard'

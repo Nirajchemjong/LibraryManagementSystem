@@ -6,7 +6,7 @@ export const Dashboard = () => {
   return (
     <div>
       <UserLayout>
-        <h3>Dashboard</h3>
+        <h3 className='text-center mt-3'>Dashboard</h3>
         <hr />
       </UserLayout>
     </div>

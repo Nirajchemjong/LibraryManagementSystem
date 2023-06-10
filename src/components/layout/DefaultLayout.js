@@ -6,6 +6,7 @@ export const DefaultLayout = ({ children }) => {
   return (
     <>
       <Header />
+
       <div className='main'>{children}</div>
       <Footer />
     </>

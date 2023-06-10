@@ -11,17 +11,18 @@ import { setDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { getUserAction } from "../user/userAction";
 import { useDispatch, useSelector } from "react-redux";
+import { UserLayout } from "../../components/layout/UserLayout";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({});
   const navigate = useNavigate();
 
-  const { admin } = useSelector((state) => state.adminInfo);
+  //   const { admin } = useSelector((state) => state.adminInfo);
 
-  useEffect(() => {
-    admin?.uid && navigate("/dashboard");
-  }, [admin, navigate]);
+  //   useEffect(() => {
+  //     admin?.uid && navigate("/dashboard");
+  //   }, [admin, navigate]);
 
   const handleOnChanged = (e) => {
     const { name, value } = e.target;
@@ -120,27 +121,28 @@ const Signup = () => {
   //   console.log(form);
 
   return (
-    <DefaultLayout>
-      <div className='admin-form border p-3'>
-        <Form onSubmit={handleOnSubmit}>
-          <h1>Admin Registration </h1>
+    <UserLayout>
+      <div className='admin-layout'>
+        <div className='admin-form border p-3'>
+          <Form onSubmit={handleOnSubmit}>
+            <h1>Admin Registration </h1>
 
-          {inputs.map((item) => (
-            <CustomInput
-              {...item}
-              onChange={handleOnChanged}
-            />
-          ))}
-          <p className='d-grid'>
-            <Button
-              variant='dark'
-              type='submit'
-            >
-              Submit
-            </Button>
-          </p>
+            {inputs.map((item) => (
+              <CustomInput
+                {...item}
+                onChange={handleOnChanged}
+              />
+            ))}
+            <p className='d-grid'>
+              <Button
+                variant='dark'
+                type='submit'
+              >
+                Submit
+              </Button>
+            </p>
 
-          {/* 
+            {/* 
           <CustomInput
             type={"email"}
             lable={"Email"}
@@ -171,9 +173,10 @@ const Signup = () => {
           >
             Submit
           </Button> */}
-        </Form>
+          </Form>
+        </div>
       </div>
-    </DefaultLayout>
+    </UserLayout>
   );
 };
 

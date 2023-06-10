@@ -1,13 +1,14 @@
 import React from "react";
-import { DefaultLayout } from "../../components/layout/DefaultLayout";
+// import { DefaultLayout } from "../../components/layout/DefaultLayout";
+import { UserLayout } from "../../components/layout/UserLayout";
 
 export const Dashboard = () => {
   return (
     <div>
-      <DefaultLayout>
+      <UserLayout>
         <h3>Dashboard</h3>
         <hr />
-      </DefaultLayout>
+      </UserLayout>
     </div>
   );
 };

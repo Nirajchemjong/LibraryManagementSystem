@@ -11,13 +11,23 @@ import { getUserAction } from "./pages/user/userAction";
 import { auth } from "./config/firebase-config";
 import { PrivateRoute } from "./components/private-route/PrivateRoute";
 import Books from "./pages/book/Books";
-import History from "./pages/history/History";
+import { BurrowHistory } from "./pages/burrow-history/BurrowHistory";
 import Clients from "./pages/clients/Clients";
+import { NewBook } from "./pages/book/NewBook";
+import { EditBook } from "./pages/book/EditBook";
+import { useEffect } from "react";
+import { getAllBookAction } from "./pages/book/BookAction";
+import { BookLanding } from "./pages/book/BookLanding";
+import PublicSignUp from "./pages/sign-up-sign-in/PublicSignUp";
+import { ResetPassword } from "./pages/sign-up-sign-in/ResetPassword";
 function App() {
   const dispatch = useDispatch();
   onAuthStateChanged(auth, (user) => {
     user?.uid && dispatch(getUserAction(user?.uid));
   });
+  useEffect(() => {
+    dispatch(getAllBookAction());
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -27,13 +37,14 @@ function App() {
           element={<Login />}
         ></Route>
         <Route
-          path='/signup'
+          path='/admin-signup'
           element={
             <PrivateRoute>
               <Signup />
             </PrivateRoute>
           }
         ></Route>
+
         <Route
           path='/'
           element={<Home />}
@@ -58,6 +69,8 @@ function App() {
             </>
           }
         ></Route>
+
+        {/* book routers  */}
         <Route
           path='/books'
           element={
@@ -66,11 +79,26 @@ function App() {
             </PrivateRoute>
           }
         />
+
+        <Route
+          path='new-book'
+          element={
+            <PrivateRoute>
+              <NewBook />
+            </PrivateRoute>
+          }
+        />
+        {/* 
+          //when clicking on book from hom  */}
+        <Route
+          path='book/:id'
+          element={<BookLanding />}
+        />
         <Route
           path='/history'
           element={
             <PrivateRoute>
-              <History />
+              <BurrowHistory />
             </PrivateRoute>
           }
         />
@@ -82,11 +110,29 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path='/edit-book/:id'
+          element={
+            <PrivateRoute>
+              <EditBook />
+            </PrivateRoute>
+          }
+        />
         {/* //{" "}
       <div className=''>
         // <Button variant='primary'>Primary</Button>
         //{" "}
       </div> */}
+
+        <Route
+          path='/signup'
+          element={<PublicSignUp />}
+        />
+
+        <Route
+          path='/reset-password'
+          element={<ResetPassword />}
+        ></Route>
       </Routes>
       <ToastContainer />
     </>

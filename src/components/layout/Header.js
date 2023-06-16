@@ -71,6 +71,12 @@ export const Header = () => {
                 >
                   Log In
                 </Link>
+                <Link
+                  className='nav-link'
+                  to='/Signup'
+                >
+                  Sign Up
+                </Link>
               </>
             )}
           </Nav>

@@ -10,12 +10,11 @@ import { toast } from "react-toastify";
 import { setDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { getUserAction } from "../user/userAction";
-import { useDispatch, useSelector } from "react-redux";
-import { UserLayout } from "../../components/layout/UserLayout";
+import { useDispatch } from "react-redux";
 
-const Signup = () => {
+const PublicSignUp = () => {
   const dispatch = useDispatch();
-  const [form, setForm] = useState({ role: "admin" });
+  const [form, setForm] = useState({ role: "students" });
   const navigate = useNavigate();
 
   //   const { admin } = useSelector((state) => state.adminInfo);
@@ -121,11 +120,11 @@ const Signup = () => {
   //   console.log(form);
 
   return (
-    <UserLayout>
+    <DefaultLayout>
       <div className='admin-layout'>
         <div className='admin-form border p-3'>
           <Form onSubmit={handleOnSubmit}>
-            <h1>Admin Registration </h1>
+            <h1> Registration For Students </h1>
 
             {inputs.map((item) => (
               <CustomInput
@@ -176,8 +175,8 @@ const Signup = () => {
           </Form>
         </div>
       </div>
-    </UserLayout>
+    </DefaultLayout>
   );
 };
 
-export default Signup;
+export default PublicSignUp;

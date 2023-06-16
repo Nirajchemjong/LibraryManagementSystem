@@ -77,7 +77,7 @@ const Login = () => {
     <DefaultLayout>
       <div className='login_layout'>
         <Form onSubmit={handleOnSubmit}>
-          <h1 className='mt-5 text-center'>Admin Login Only</h1>
+          <h1 className='mt-5 text-center'>Welcome To Library</h1>
           <div className='login '>
             {loginData.map((item) => (
               <CustomInput
@@ -95,6 +95,9 @@ const Login = () => {
             </Button>
           </div>
         </Form>
+        <p className='text-end'>
+          Forget Password ? <a href='/reset-password'>Reset</a> Password
+        </p>
       </div>
     </DefaultLayout>
   );

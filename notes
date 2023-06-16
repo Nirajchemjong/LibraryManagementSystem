@@ -28,4 +28,6 @@ features
   -login
 - dashboard
 - borrow books
+- borrow history
 - return books
+  -leave rating and feedback

@@ -1,13 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const SideBar = () => {
+  const { admin } = useSelector((state) => state.adminInfo);
   return (
     <div
       className=' bg-dark text-light '
       style={{ width: "150px" }}
     >
-      <div className='top text-center mt-5'>Admin</div>
+      <div className='top text-center mt-5'>{admin.role} Account</div>
       <div>
         <ul
           className='list-unstyled mx-4 mt-3 d-grid text-center'
@@ -49,7 +51,7 @@ export const SideBar = () => {
 
           <li>
             <Link
-              to='/signup'
+              to='/admin-signup'
               className='nav-link'
             >
               Add Admin

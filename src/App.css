@@ -17,6 +17,7 @@
     align-items: center;
     border-radius: 20px;
     box-shadow: rgba(91, 88, 88, 0.755) .2rem .2rem .9rem .2rem;
+    margin: 2rem;
 }
 
 .login_layout {
@@ -45,5 +46,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.reset_layout {
+    width: 80%;
+    height: 19rem;
+    margin: 0 auto;
+    display: flex;
     flex-direction: column;
 }

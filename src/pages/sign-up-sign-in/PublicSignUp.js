@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DefaultLayout } from "../../components/layout/DefaultLayout";
 // import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -124,7 +124,7 @@ const PublicSignUp = () => {
       <div className='admin-layout'>
         <div className='admin-form border p-3'>
           <Form onSubmit={handleOnSubmit}>
-            <h1> Registration For Students </h1>
+            <h1> Students Registration </h1>
 
             {inputs.map((item) => (
               <CustomInput

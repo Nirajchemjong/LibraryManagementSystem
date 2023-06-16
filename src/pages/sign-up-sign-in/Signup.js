@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { DefaultLayout } from "../../components/layout/DefaultLayout";
+import React, { useState } from "react";
+// import {  } from "../../components/layout/DefaultLayout";
 // import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { CustomInput } from "../../components/custom-input/CustomInput";
@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { setDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { getUserAction } from "../user/userAction";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { UserLayout } from "../../components/layout/UserLayout";
 
 const Signup = () => {
@@ -122,8 +122,8 @@ const Signup = () => {
 
   return (
     <UserLayout>
-      <div className='admin-layout'>
-        <div className='admin-form border p-3'>
+      <div className='admin-layout mt-4'>
+        <div className='admin-form border  p-3'>
           <Form onSubmit={handleOnSubmit}>
             <h1>Admin Registration </h1>
 

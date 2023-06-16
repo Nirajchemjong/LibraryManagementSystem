@@ -81,6 +81,7 @@ const Login = () => {
           <div className='login '>
             {loginData.map((item) => (
               <CustomInput
+                // key={item.uid}
                 {...item}
                 onChange={handleOnChange}
                 // className='w-3'

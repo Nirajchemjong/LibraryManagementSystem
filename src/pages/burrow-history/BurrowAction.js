@@ -42,7 +42,7 @@ const addNewBurrowAction = (transctionObj) => async (dispatch) => {
       dispatch(getAllBurrowHistory(transctionObj.userID));
     }
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     toast.message(error.message);
   }
 };

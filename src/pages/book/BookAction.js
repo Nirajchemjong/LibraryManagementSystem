@@ -28,7 +28,7 @@ const addNewBookAction = (bookObj) => async (dispatch) => {
       dispatch(getAllBookAction());
     }
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     toast.message(error.message);
   }
 };
@@ -45,7 +45,7 @@ export const getAllBookAction = () => async (dispatch) => {
       const { id } = doc;
       const data = doc.data();
       //   console.log(data, id);
-      book.push({ ...data, id });
+      !data.length && book.push({ ...data, id });
     });
     dispatch(setBookList(book)); //sending data making array
   } catch (error) {
@@ -63,7 +63,7 @@ export const getBookAction = (id) => async (dispatch) => {
     if (BookSnapShot.exists()) {
       //   console.log(BookSnapShot.data());
       const BookData = BookSnapShot.data();
-      console.log(BookData);
+      //   console.log(BookData);
       dispatch(setSelectedBook({ ...BookData, id })); //sending data with id to hooks
       //   toast.message("hook works");
     }
@@ -80,7 +80,7 @@ export const getBookAction = (id) => async (dispatch) => {
     // });
     // dispatch(setBook(book));
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     toast.error(error.message);
   }
 };
@@ -90,12 +90,12 @@ export const updateBookAction =
   async (dispatch) => {
     try {
       //add new document in to the database
-      console.log(id, rest);
+      //   console.log(id, rest);
       await setDoc(doc(db, "books", id), rest, { merge: true });
       toast.success("The book has been updated successfully ");
       dispatch(getAllBookAction());
     } catch (error) {
-      console.log(error.message);
+      //   console.log(error.message);
       toast.error(error.message);
     }
   };

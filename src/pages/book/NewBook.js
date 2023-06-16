@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
 import { CustomInput } from "../../components/custom-input/CustomInput";
 import { useDispatch } from "react-redux";
-import addNewBookAction, { getBookAction } from "../book/BookAction";
+import addNewBookAction from "../book/BookAction";
 
 export const NewBook = () => {
   const [AddBook, SetAddBook] = useState({});
